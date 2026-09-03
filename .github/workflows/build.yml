@@ -20,11 +20,10 @@ jobs:
           cache: 'maven'
 
       - name: Compiler avec Maven
-        working-directory: ironage-plugin
         run: mvn -B clean package
 
       - name: Publier le .jar compile
         uses: actions/upload-artifact@v4
         with:
           name: ironage-plugin-jar
-          path: ironage-plugin/target/*.jar
+          path: target/*.jar
