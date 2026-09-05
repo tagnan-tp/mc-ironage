@@ -1,4 +1,0 @@
-# Passe automatiquement a true des qu'une distribution /ironage a eu lieu.
-# Empeche de recreer des exemplaires supplementaires par accident.
-# Utilise "/ironage reset" en console pour repasser a false volontairement.
-ironage-distributed: false
