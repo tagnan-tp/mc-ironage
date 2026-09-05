@@ -1,0 +1,10 @@
+# Passe automatiquement a true des qu'une distribution /ironage a eu lieu.
+# Empeche de recreer des exemplaires supplementaires par accident.
+# Utilise "/ironage reset" en console pour repasser a false volontairement.
+ironage-distributed: false
+
+# Message envoye au joueur qui essaie de mettre un objet en diamant unique
+# dans un conteneur (coffre, baril, four, shulker box, etc.).
+# Les codes couleur "&" sont acceptes (ex: &c = rouge, &b = bleu clair).
+# Le placeholder %item% est remplace par le nom lisible de l'objet (ex: "Diamond Sword").
+deny-storage-message: "&cCet objet en diamant (%item%) est un artefact unique : il ne peut pas etre stocke dans un conteneur."
