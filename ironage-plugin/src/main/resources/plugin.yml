@@ -1,0 +1,13 @@
+name: IronAge
+version: 1.0.0
+main: fr.ironage.plugin.IronAgePlugin
+api-version: '1.21'
+author: Toi
+description: Verrouille le serveur a l'age de fer - le diamant devient un artefact unique distribue par /ironage
+commands:
+  ironage:
+    description: Distribue aleatoirement les 10 objets en diamant uniques entre les joueurs en ligne (console uniquement).
+    usage: /ironage [reset]
+  coifeur:
+    description: Active/desactive la reponse automatique "Feur" quand un joueur dit "quoi" dans le tchat (OP ou console).
+    usage: /coifeur
