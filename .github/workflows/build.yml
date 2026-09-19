@@ -1,4 +1,4 @@
-name: Build IronAge plugin
+name: Build MobDamageReducer plugin
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ironage-plugin
+        working-directory: mobdamage
     steps:
       - name: Recuperer le code
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           cache: 'maven'
-          cache-dependency-path: ironage-plugin/pom.xml
+          cache-dependency-path: mobdamage/pom.xml
 
       - name: Compiler avec Maven
         run: mvn -B clean package
@@ -29,5 +29,5 @@ jobs:
       - name: Publier le .jar compile
         uses: actions/upload-artifact@v4
         with:
-          name: ironage-plugin-jar
-          path: ironage-plugin/target/*.jar
+          name: mobdamage-plugin-jar
+          path: mobdamage/target/*.jar
