@@ -1,0 +1,7 @@
+# Etat de la réduction de dégâts au démarrage du serveur.
+# true = réduction active, false = désactivée
+enabled: true
+
+# Pourcentage de réduction des dégâts infligés par les mobs aux joueurs.
+# Valeur entre 0 et 100. Exemple : 40 = -40% de dégâts.
+reduction-percent: 40
