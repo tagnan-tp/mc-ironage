@@ -1,3 +1,0 @@
-# Etat de la réduction de dégâts au démarrage du serveur.
-# true = réduction active (-40%), false = désactivée
-enabled: true
