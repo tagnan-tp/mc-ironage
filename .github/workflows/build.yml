@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ironage-plugin
     steps:
       - name: Recuperer le code
         uses: actions/checkout@v4
@@ -18,9 +21,9 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           cache: 'maven'
+          cache-dependency-path: ironage-plugin/pom.xml
 
       - name: Compiler avec Maven
-        working-directory: ironage-plugin
         run: mvn -B clean package
 
       - name: Publier le .jar compile
