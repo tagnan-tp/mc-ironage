@@ -1,3 +1,4 @@
+```yaml
 name: Build IronAge plugin
 
 on:
@@ -9,14 +10,11 @@ on:
 
 jobs:
   build:
+    name: Build plugin
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ironage-plugin
-
     steps:
-      - name: Récupérer le code
+      - name: Recuperer le code
         uses: actions/checkout@v4
 
       - name: Installer Java 21
@@ -27,12 +25,20 @@ jobs:
           cache: maven
           cache-dependency-path: ironage-plugin/pom.xml
 
-      - name: Compiler avec Maven
-        run: mvn -B clean package
+      - name: Verifier le projet
+        run: |
+          echo "Contenu du depot :"
+          ls -la
+          echo ""
+          echo "Contenu de ironage-plugin :"
+          ls -la ironage-plugin
+          echo ""
+          echo "Verification du pom.xml :"
+          test -f ironage-plugin/pom.xml
 
-      - name: Publier le JAR compilé
-        uses: actions/upload-artifact@v4
-        with:
-          name: ironage-plugin-jar
-          path: ironage-plugin/target/*.jar
+      - name: Compiler avec Maven
+        working-directory: ironage-plugin
+        run: mvn --batch-mode clean package
+
+      - name: Verifi
 ```
