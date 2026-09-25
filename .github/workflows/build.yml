@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build plugin
+    name: Build IronAge
     runs-on: ubuntu-latest
 
     steps:
@@ -25,20 +25,14 @@ jobs:
           cache: maven
           cache-dependency-path: ironage-plugin/pom.xml
 
-      - name: Verifier le projet
-        run: |
-          echo "Contenu du depot :"
-          ls -la
-          echo ""
-          echo "Contenu de ironage-plugin :"
-          ls -la ironage-plugin
-          echo ""
-          echo "Verification du pom.xml :"
-          test -f ironage-plugin/pom.xml
-
-      - name: Compiler avec Maven
+      - name: Compiler le plugin
         working-directory: ironage-plugin
         run: mvn --batch-mode clean package
 
-      - name: Verifi
+      - name: Publier le JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: ironage-plugin
+          path: ironage-plugin/target/*.jar
+          if-no-files-found: error
 ```
