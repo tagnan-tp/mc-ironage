@@ -1,0 +1,51 @@
+# Passe automatiquement a true des qu'une distribution /ironage a eu lieu.
+# Empeche de recreer des exemplaires supplementaires par accident.
+# Utilise "/ironage reset" en console pour repasser a false volontairement.
+ironage-distributed: false
+
+# Message envoye au joueur qui essaie de mettre un objet en diamant unique
+# dans un conteneur (coffre, baril, four, shulker box, etc.).
+# Les codes couleur "&" sont acceptes (ex: &c = rouge, &b = bleu clair).
+# Le placeholder %item% est remplace par le nom lisible de l'objet (ex: "Diamond Sword").
+deny-storage-message: "&cCet objet (%item%) est un artefact unique : il ne peut pas etre stocke dans un conteneur."
+
+# Active/desactive la reponse automatique "Feur" quand un joueur ecrit "quoi" dans le tchat.
+# Modifiable en jeu avec /coifeur (OP ou console).
+feur-enabled: true
+
+# Message envoye a tout le serveur quand le "Feur" se declenche.
+feur-message: "&bFeur !"
+
+# Nombre maximum de charges de reroll manuel de la houe en diamant unique
+# (/diamondhoe, hors "op" qui est illimite). Le nombre de charges restantes est
+# affiche en violet dans le nom de l'objet, et se regagne (1 a la fois) en
+# posant la houe + un bloc de diamant sur une table de craft.
+diamondhoe-max-charges: 2
+
+# Multiplicateur applique au prix des livres enchantes chez les villageois.
+# Modifiable en jeu avec /villagermultiplier (OP). 1 = prix normal, 2 = double,
+# 0.5 = moitie prix, 0.25 = quart du prix.
+villager-book-price-multiplier: 1.0
+
+# MODULES - permet de couper completement un groupe de fonctions (diagnostic).
+# Mets un module a false puis redemarre le serveur (ou utilise /irontest <n> pour appliquer
+# une configuration de test predefinie a chaud, de facon temporaire). Tout est actif par defaut.
+# (Les commandes /ironage, /coifeur, /diamondhoe, /villagermultiplier, /irontest restent toujours
+# enregistrees, quel que soit l'etat des modules.)
+modules:
+  craft-blocking: true       # craft des objets diamant bloque
+  container-blocking: true   # stockage bloque (coffres, sac, cadre, statue, entonnoir...)
+  loot-filter: true          # retrait du loot (coffres de structures, vaults)
+  holder-tracking: true      # suivi du detenteur actuel (scan a la connexion + toutes les 30s)
+  item-protection: true      # anti-despawn / anti-feu + filet anti-objet non tague (scan toutes les 5s)
+  villagers: true            # commerces villageois (diamant -> cuivre) + prix des livres
+  hoe: true                  # houe en diamant (radar, charges, recharge)
+  feur: true                 # reponse "Feur" dans le tchat
+  strength-rule: true        # Force II interdite (sauf /force give)
+  mace-rules: true           # masse : seul Wind Burst autorise ; livres via oeuf de dragon
+
+# Decompte de 10 secondes affiche aux joueurs a la distribution (/ironage ; pas /ironquick).
+# true  = les chiffres 3, 2, 1 utilisent des chiffres "pleine largeur", environ 2x plus hauts
+#         (rendu Java ; a mettre sur false si des joueurs Bedrock voient des carres a la place).
+# false = chiffres normaux (les 3, 2, 1 grossissent alors seulement par la decoration et le son).
+countdown-big-digits: true
